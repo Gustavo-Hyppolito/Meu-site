@@ -126,26 +126,47 @@
 // console.log(conta1.exibirSaldo());
 
 
-class ContaBancaria {
-#saldo 
-numeroConta
+// class ContaBancaria {
+// #saldo 
+// numeroConta
 
-constructor({saldo, numeroConta}){
-    this.#saldo
-    this.numeroConta
+// constructor({saldo, numeroConta}){
+//     this.#saldo
+//     this.numeroConta
+// }
+
+// set setSaldo(valeu){
+//     return this.#saldo = valeu;
+// }
+// get getSaldo(){
+//     return this.#saldo;
+// }}
+
+// let conta1 = new ContaBancaria(1250, "R2D2")
+// console.log(conta1.numeroConta);
+// console.log(conta1.getSaldo);
+// conta1.#getsaldo = 150
+// console.log(conta1.getSaldo);
+
+
+class animal {
+        nome 
+    constructor(nome){
+        this.nome = nome
+    }
+    FazerSom(){
+        return (`Emite som generico`)
+    }
 }
 
-set setSaldo(valeu){
-    return this.#saldo = valeu;
+class Cachorro extends animal {
+    constructor(nome){ 
+    super(nome)
+    }
+    FazerSom(){
+        return(`Au Au`)
+    }
+   
 }
-get getSaldo(){
-    return this.#saldo;
-}}
-
-let conta1 = new ContaBancaria(1250, "R2D2")
-console.log(conta1.numeroConta);
-console.log(conta1.getSaldo);
-conta1.#getsaldo = 150
-console.log(conta1.getSaldo);
-
-
+let dog = new Cachorro(`Maya`);
+console.log(`O meu cachorrinho se chama ${dog.nome} e  faz ${dog.FazerSom()}`);
