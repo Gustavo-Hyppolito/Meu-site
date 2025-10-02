@@ -73,56 +73,106 @@
 
 
 
-class funcionario {
-    constructor(salario){
-        this.salario = salario
-    }
-}
+// class funcionario {
+//     constructor(salario){
+//         this.salario = salario
+//     }
+// }
 
-class Gerente extends funcionario {
-    constructor (salario){
-        super(salario)
-    }
-    calcularSalario(){
-        return this.salario + (this.salario * 30/100)
-    }
+// class Gerente extends funcionario {
+//     constructor (salario){
+//         super(salario)
+//     }
+//     calcularSalario(){
+//         return this.salario + (this.salario * 30/100)
+//     }
 
-}
-class desenvolvedor extends funcionario {
-    constructor (salario){
-        super(salario)
-    }
-    calcularSalario(){
-        return this.salario + (this.salario * 20/100)
-    }
-}
-let gerente1 = new Gerente(2000)
-let desenvolvedor1 = new desenvolvedor(2000)
-console.log(`O salario do gerente é ${gerente1.calcularSalario()}`)
-console.log(`O salario do desenvolvedor é ${desenvolvedor1.calcularSalario()}`)
-
-
-
-class ContaBancaria  {
-    constructor(saldo, titular){
-        this.saldo = saldo
-        this.titular = titular  
-    }
-}
-class ContaCorrente extends ContaBancaria {
-    constructor(saldo, titular){
-        super(saldo, titular)
-    }
-}
-class depositar extends ContaBancaria {
-    constructor(saldo, titular){
-        super(saldo, titular)
-    }
-}
-class sacar extends ContaBancaria{
-    constructor(saldo, titular)
+// }
+// class desenvolvedor extends funcionario {
+//     constructor (salario){
+//         super(salario)
+//     }
+//     calcularSalario(){
+//         return this.salario + (this.salario * 20/100)
+//     }
+// }
+// let gerente1 = new Gerente(2000)
+// let desenvolvedor1 = new desenvolvedor(2000)
+// console.log(`O salario do gerente é ${gerente1.calcularSalario()}`)
+// console.log(`O salario do desenvolvedor é ${desenvolvedor1.calcularSalario()}`)
 
 
+// class Produto { 
+//   #nome 
+//    #preco 
+//   constructor(nome, preco) { 
+
+//     this.#nome = nome; 
+
+//     this.setPreco(preco) 
+
+//   } 
+//   getNome() { 
+
+//     return this.#nome 
+
+//   } 
+
+//   setNome(nome) { 
+
+//     this.#nome = nome } 
+//   getPreco() { 
+
+//     return this.#preco } 
+//   setPreco(preco) { 
+
+//     if (preco >= 0) { 
+
+//       this.#preco = preco 
+
+//     } else { 
+
+//       console.log("Preço inválido, Deve ser >= 0.") 
+// }}} 
+// const p = new Produto("Celular", 1500) 
+
+// console.log(p.getNome(), p.getPreco()) 
+
+// p.setPreco(-10) 
 
 
-}
+
+// class Carro { 
+
+//   #velocidade = 0 
+
+//   getVelocidade() { 
+
+//     return this.#velocidade 
+
+//   }
+
+//   acelerar() { 
+
+//     this.#velocidade += 10; 
+
+//   } 
+
+//   frear() { 
+
+//     if (this.#velocidade >= 10) { 
+
+//       this.#velocidade -= 10; 
+
+//     } else { 
+
+//  this.#velocidade = 0; 
+
+//  }}} 
+// const c = new Carro() 
+// c.acelerar() 
+// c.acelerar() 
+// console.log(c.getVelocidade()) 
+// c.frear() 
+// console.log(c.getVelocidade()) 
+ 

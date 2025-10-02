@@ -148,25 +148,3 @@
 // conta1.#getsaldo = 150
 // console.log(conta1.getSaldo);
 
-
-class animal {
-        nome 
-    constructor(nome){
-        this.nome = nome
-    }
-    FazerSom(){
-        return (`Emite som generico`)
-    }
-}
-
-class Cachorro extends animal {
-    constructor(nome){ 
-    super(nome)
-    }
-    FazerSom(){
-        return(`Au Au`)
-    }
-   
-}
-let dog = new Cachorro(`Maya`);
-console.log(`O meu cachorrinho se chama ${dog.nome} e  faz ${dog.FazerSom()}`);
