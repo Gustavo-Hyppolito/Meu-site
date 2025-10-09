@@ -1,79 +1,84 @@
-// class Carga{
-//     function rastrearCarga(codigoRastreio){
+const statusCargas = {
+ "BR12345": "Em trânsito para o centro de distribuição",
+ "BR67890": "Entregue ao destinatário",
+ "BR54321": "Aguardando retirada na agência"
+ };
 
+function rastrearCarga(codigoRastreio, callback) {
+  return callback(codigoRastreio);
+}
+function buscarstatus(codigo) {
+  if (statusCargas[codigo]) {
+ return statusCargas[codigo];
+  } else {
+    return "Código não encontrado.";
+  }
+}
+  
+console.log(rastrearCarga("BR12345", buscarstatus));
+console.log(rastrearCarga("BR00000", buscarstatus));
 
-//     }}
-
-//     const statusCargas = {
-// "BR12345": "Em trânsito para o centro de distribuição",
-// "BR67890": "Entregue ao destinatário",
-// "BR54321": "Aguardando retirada na agência"
-// };
 
 /////////////
 
 
-// class ItemEstoque { 
+class ItemEstoque { 
 
-//      constructor(codigo, descrição, localização) { 
+     constructor(codigo, descrição, localização) { 
 
-//         this.codigo = codigo
+        this.codigo = codigo
 
-//         this.descrição = descrição
+        this.descrição = descrição
 
-//         this. localização = localização
+        this. localização = localização
 
-//     } 
+    } 
 
-//    obertLocalização() { 
+   obertLocalização() { 
 
-//         return `O item está em: ${this.localização} `
+        return `O item está em: ${this.localização} `
 
-//     } 
-//     atualizarLocalizacao(novaLocalizacao){
-//       return `O item agora está: ${this.localização = novaLocalizacao}`
-//     }
+    } 
+    atualizarLocalizacao(novaLocalizacao){
+      return `O item agora está: ${this.localização = novaLocalizacao}`
+    }
 
-//  } 
+ } 
  
 
-// const produto1 = new ItemEstoque("0612", "É bonito", "Corredor G, Prateleira 3") 
+const produto1 = new ItemEstoque("0612", "É bonito", "Corredor G, Prateleira 3") 
 
 
-//  console.log(`O codigo do produto é: ${produto1.codigo}; a sua descrição: ${produto1.descrição}; e sua localização é ${produto1.obertLocalização()}`) 
-// console.log(produto1.atualizarLocalizacao("Corredor J, Prateleira 6"))
+ console.log(`O codigo do produto é: ${produto1.codigo}; a sua descrição: ${produto1.descrição}; e sua localização é ${produto1.obertLocalização()}`) 
+console.log(produto1.atualizarLocalizacao("Corredor J, Prateleira 6"))
  
-/////////////
+///////////
 
-//  class Rota { 
-//     constructor( codigo, veiculo, endereços) { 
-//         this.codigo = codigo
+ class Rota { 
+    constructor( codigo, veiculo, endereços) { 
+        this.codigo = codigo
 
-//         this.veiculo = veiculo
+        this.veiculo = veiculo
 
-//         this. endereços = endereços
+        this. endereços = endereços
 
-//     } 
+    } 
 
-//    obertdestino() { 
+    NovoDestino(DestinoAtual){
+      return `Trocamos para ${this.endereços = DestinoAtual}`
+    }
+    exibirresumo() { 
 
-//         return ` ${this.endereços} `
+        return `Rota é: ${this.codigo}, o veículo utilizado é: ${this.veiculo}, e o destino final é: ${this.endereços}`
 
-//     } 
-//     NovoDestino(DestinoAtual){
-//       return `Trocamos para ${this.endereços = DestinoAtual}`
-//     }
+ } 
+}
+ const rota1 = new Rota("1206", "Eclipsi", "Rua Santo Daniel");
 
-//  } 
- 
-
-// const rota1 = new Rota("1206", "Eclipsi", "Rua Santo Daniel") 
-
-
-//  console.log(`O codigo da viagem é: ${rota1.codigo}; o seu veiculo é: ${rota1.veiculo}; e para onde vamos é ${rota1.obertdestino()}`) 
-
-// console.log(rota1.NovoDestino("Rua Gabriel Assunção Dutra"))
-
+console.log(rota1.NovoDestino("Rua Gabriel Assunção Dutra"));
+console.log(rota1.exibirresumo());
+rota1.NovoDestino("Rua Gabriel Assunção Dutra");
+console.log(rota1.exibirresumo());
 
 /////////
 
@@ -92,38 +97,42 @@
 
 class Caixa extends Embalagem { 
 
-    constructor(id, pesoMaximo, L, h, profundidade ) { 
+    constructor(id, L, h, profundidade ) { 
 
-        super(id, pesoMaximo) 
+        super(id,25) 
 
         this.L = L
         this.h = h
         this.profundidade = profundidade
 
     } 
+    podeConter(pesoItem){
+      return pesoItem <= this.pesoMaximo;
+    }
 
 
 } 
 
 class Palete extends Embalagem { 
 
-    constructor(id, pesoMaximo, material ) { 
+    constructor(id, material ) { 
 
-         super(id, pesoMaximo) 
+         super(id, 1000) 
 
-        this.material = material 
+        this.material = material;
 
     } 
+    podeConter(pesoItem){
+      return pesoItem <= this.pesoMaximo;
+    }
 
 } 
 
-const caixa1 = new Caixa(6789, 25, 10, 10, 10) 
+const caixa1 = new Caixa("C001", 10, 10, 10);
+const palete1 = new Palete("P001", "Madeira");
 
-const palete1 = new Palete(12345, 1000, "Madeira") 
-
-console.log(`Caixa | ID: ${Caixa.id}, Peso: ${Caixa.pesoMaximo}, Largura: ${Caixa.L}, Altura: ${Caixa.h}, Profundidade: ${Caixa.profundidade}  `) 
-
-console.log(`Palete | ID: ${Palete.id}, Peso: ${Palete.pesoMaximo}, Material ${Palete.material}`) 
+console.log(`A caixa pode conter o item? ${caixa1.podeConter(20)}`); 
+console.log(`O palete pode conter o item? ${palete1.podeConter(200)}`);
  
 
 ////////////////////////
