@@ -177,6 +177,46 @@ const tarefas = [
   new SepararPedido("Separar", "Ana", 5),
 ];
 
+for(let i = 0; i < tarefas.length; i++) {
+  let t = tarefas[i];
+  console.log(`${t.descricao}, Tempo Estimado: ${t.calcularTempoEstimado()} minutos`);
+}
+
+///////////////
 
 
+class Almoxarifado {
+
+  #quantidade;
+  nome;
+  constructor(nome, quantidade) {
+    this.nome = nome;
+    this.#quantidade = quantidade;
+  }
+  adicionarEstoque(qtd){
+    if(qtd > 0){
+      this.#quantidade += qtd;
+    } else {
+      return "Quantidade inválida";
+    }
+   }
+  retiraPedido(qtd){
+    if(qtd <= this.#quantidade){
+      this.#quantidade -= qtd;
+    }
+  }
+  consultarEstoque(){
+    return `Você tem ${this.#quantidade} unidades de ${this.nome} em estoque.`
+  }
+}
+
+let produto2 = new Almoxarifado("Parafusos", 100);
+console.log(produto1.consultarEstoque());
+produto1.adicionarEstoque(50);
+console.log(produto1.consultarEstoque());
+produto1.retiraPedido(30);
+console.log(produto1.consultarEstoque());
+
+
+/////////////////////
 
